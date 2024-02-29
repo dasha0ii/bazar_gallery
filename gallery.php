@@ -80,6 +80,13 @@
             font-weight: normal;
             font-style: normal;
         }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Updated line to have two columns */
+            gap: 16px;
+            max-width: 300px;
+            margin: 20px auto;
+        }
     </style>
 </head>
 <body>
