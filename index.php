@@ -33,6 +33,13 @@
             box-sizing: border-box;
         }
 
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
         button {
             background-color: #000;
             color: #fff;
@@ -72,39 +79,48 @@
         }
 
         .gallery-link:active {
-            transform: scale(0.85);
+            transform: scale(0.90);
+        }
+
+        body {
+            font-family: 'Font', Arial, sans-serif;
+            /* Добавьте другие стили по необходимости */
+        }
+
+        /* Добавьте другие стили по необходимости */
+
+        @font-face {
+            font-family: 'Font';
+            src: url('font/font.ttf') format('truetype');
+            /* Укажите правильный путь к вашему шрифту в поддиректории font */
+            font-weight: normal;
+            font-style: normal;
+        }
+        .custom-button {
+            font-family: 'Font', Arial, sans-serif;
+
+        }
+        .custom-button2 {
+            font-family: 'Font', Arial, sans-serif;
+
+        }
+        .custom-button:hover {
+            background-color: #333;
         }
     </style>
-    <script>
-        function uploadFile() {
-            var formData = new FormData(document.getElementById("uploadForm"));
-
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState == 4) {
-                    if (xhr.status == 200) {
-                        // Успешно загружено
-                        alert('Файл успешно загружен!');
-                    } else {
-                        // Произошла ошибка
-                        alert('Ошибка при загрузке файла.');
-                    }
-                }
-            };
-
-            xhr.open("POST", "create.php", true);
-            xhr.send(formData);
-
-            return false; // Предотвращаем переход на create.php
-        }
-    </script>
 </head>
 <body>
-    <form class="upload-form" id="uploadForm" enctype="multipart/form-data" onsubmit="return uploadFile()">
-        <input type="file" name="image">
-        <button type="submit">Загрузить</button>
-    </form>
+
+    <form class="upload-form" action="create.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" class="custom-button2">
+        <button type="submit" class="custom-button">Загрузить</button>
+    </form> 
 
     <a class="gallery-link" href="gallery.php">Посмотреть галерею</a>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="https://github.com/dasha0ii/bazar_gallery" target="_blank" style="text-decoration: none; color: #E5E4E2; font-weight: bold;">
+            Исходный код
+        </a>
+    </div>
 </body>
 </html>
