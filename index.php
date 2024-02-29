@@ -107,20 +107,56 @@
         .custom-button:hover {
             background-color: #333;
         }
+        .usdt-image {
+            max-width: 10%;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.5s ease; /* Add a smooth transition effect */
+        .usdt-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        }
     </style>
+    <script>
+        function uploadFile() {
+            var formData = new FormData(document.getElementById("uploadForm"));
+
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        // Успешно загружено
+                        alert('Файл успешно загружен!');
+                        document.getElementById("username").value = ""; // Очистка инпута после загрузки
+                        window.location.reload(); // Обновление страницы после загрузки
+                    } else {
+                        // Произошла ошибка
+                        alert('Ошибка при загрузке файла.');
+                    }
+                }
+            };
+
+            xhr.open("POST", "create.php", true);
+            xhr.send(formData);
+
+            return false; // Предотвращаем переход на create.php
+        }
+    </script>
 </head>
 <body>
 
-    <form class="upload-form" action="create.php" method="post" enctype="multipart/form-data">
+    <form class="upload-form" id="uploadForm" enctype="multipart/form-data" onsubmit="return uploadFile()" class="custom-button2">
         <input type="file" name="image" class="custom-button2">
         <button type="submit" class="custom-button">Загрузить</button>
-    </form> 
-
+    </form>
     <a class="gallery-link" href="gallery.php">Посмотреть галерею</a>
     <div style="text-align: center; margin-top: 20px;">
-        <a href="https://github.com/dasha0ii/bazar_gallery" target="_blank" style="text-decoration: none; color: #E5E4E2; font-weight: bold;">
+        <a href="https://github.com/dasha0ii/bazar_gallery" target="_blank" style="text-decoration: none; color: #A9A9A9; font-weight: bold;">
             Исходный код
         </a>
+        <a target="_blank" style="text-decoration: none; color: #010101; font-weight: bold;">|</a>
+        <a href="usdt.html" target="_blank" style="text-decoration: none; color: #A9A9A9; font-weight: bold;">USDT</a>
     </div>
 </body>
 </html>
