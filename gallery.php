@@ -66,6 +66,20 @@
         .index-link:active {
             transform: scale(0.85);
         }
+        body {
+            font-family: 'Font', Arial, sans-serif;
+            /* Добавьте другие стили по необходимости */
+        }
+
+        /* Добавьте другие стили по необходимости */
+
+        @font-face {
+            font-family: 'Font';
+            src: url('font/font.ttf') format('truetype');
+            /* Укажите правильный путь к вашему шрифту в поддиректории font */
+            font-weight: normal;
+            font-style: normal;
+        }
     </style>
 </head>
 <body>
@@ -88,7 +102,7 @@
                         // Проверяем допустимые расширения
                         if (in_array($extension, ['png', 'jpg', 'jpeg', 'gif'])) {
                             echo '<div class="gallery-item">
-                                    <img src="' . $imageDirectory . $file . '" alt="Фото">
+                                    <img onclick="openModal(\'' . $imageDirectory . $file . '\')" src="' . $imageDirectory . $file . '" alt="Фото">
                                   </div>';
                         }
                     }
@@ -96,5 +110,9 @@
             }
         ?>
     </div>
+
+
+
+    <!-- Your existing body content -->
 </body>
 </html>
